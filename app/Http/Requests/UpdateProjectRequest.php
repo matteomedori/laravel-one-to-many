@@ -26,7 +26,8 @@ class UpdateProjectRequest extends FormRequest
             'title' => ['required', 'max:40', Rule::unique('projects')->ignore($this->project->id)],
             'description' => 'string|nullable',
             'languages' => 'required|max:60',
-            'frameworks' => 'required|max:40'
+            'frameworks' => 'required|max:40',
+            'type_id' => 'nullable|exists:types,id'
         ];
     }
 
@@ -41,6 +42,7 @@ class UpdateProjectRequest extends FormRequest
             'languages.max' => 'Numero massimo caratteri: :max',
             'frameworks.required' => 'Frameworks utilizzati richiesti',
             'frameworks.max' => 'Numero massimo caratteri: :max',
+            'type_id.exists' => "L'id del tipo selezionato non è valido",
         ];
     }
 }

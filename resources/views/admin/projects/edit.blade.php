@@ -37,6 +37,20 @@
         @error('frameworks')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Tipo</label>
+            <select class="form-select @error('type_id') is-invalid @enderror" aria-label="Default select example"
+                name="type_id">
+                <option selected>Seleziona tipo progetto</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" @if (old('type_id', $project->type_id) == $type->id) selected @endif>
+                        {{ $type->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        @error('type_id')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
         <input type="submit" value="Modifica" class="btn btn-primary">
         <a href="{{ route('admin.projects.index') }}" class="btn btn-info text-light">Torna alla lista progetti</a>
     </form>
