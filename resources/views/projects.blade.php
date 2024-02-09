@@ -14,6 +14,7 @@
                         <th scope="col">Descrizione</th>
                         <th scope="col">Linguaggi</th>
                         <th scope="col">Frameworks</th>
+                        <th scope="col">Tipologia</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,6 +24,7 @@
                             <td>{{ $project->description }}</td>
                             <td>{{ $project->languages }}</td>
                             <td>{{ $project->frameworks }}</td>
+                            <td>{{ $project->type->name }}</td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -27,6 +27,7 @@
                 <th scope="col">Descrizione</th>
                 <th scope="col">Linguaggi</th>
                 <th scope="col">Frameworks</th>
+                <th scope="col">Tipologia</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -39,6 +40,7 @@
                     <td>{{ $project->description }}</td>
                     <td>{{ $project->languages }}</td>
                     <td>{{ $project->frameworks }}</td>
+                    <td>{{ $project->type->name }}</td>
                     <td><a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary btn-sm">modifica</a>
                     </td>
                     <td><a href="{{ route('admin.projects.show', $project) }}" class="btn btn-secondary btn-sm">mostra</a>
