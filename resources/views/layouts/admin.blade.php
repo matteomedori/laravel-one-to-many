@@ -69,6 +69,12 @@
                                     <i class="fa-solid fa-briefcase fa-lg fa-fw"></i> Projects
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-info' : '' }}"
+                                    href="{{ route('admin.types.index') }}">
+                                    <i class="fa-solid fa-briefcase fa-lg fa-fw"></i> Types
+                                </a>
+                            </li>
                         </ul>
 
 

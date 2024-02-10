@@ -43,7 +43,7 @@ class ProjectController extends Controller
         $newproject->slug = Str::of($newproject->title)->slug('-');
         $newproject->save();
 
-        return redirect()->route('admin.projects.index')->with('messages', "Progetto '$newproject->title' aggiunto correttamente");;
+        return redirect()->route('admin.projects.index')->with('messages', "Progetto '$newproject->title' aggiunto correttamente");
     }
 
     /**

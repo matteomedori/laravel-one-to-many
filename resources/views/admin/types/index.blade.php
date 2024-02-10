@@ -1,8 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h2 class="my-3">Lista dei progetti</h2>
-    <a href="{{ route('admin.projects.create') }}" class="btn btn-primary btn-sm">Aggiungi un nuovo progetto</a>
+    <h2 class="my-3">Lista delle tipologie di progetto</h2>
+    <a href="{{ route('admin.types.create') }}" class="btn btn-primary btn-sm">Aggiungi un nuovo tipo</a>
+
 
     {{-- show toast if exist a message --}}
     @if (session('messages'))
@@ -19,34 +20,28 @@
     @endif
     {{-- /show toast if exist a message --}}
 
-    {{-- table to show projects --}}
+    {{-- table to show types --}}
     <table class="table table-striped mt-2">
         <thead>
             <tr>
-                <th scope="col">Titolo</th>
-                <th scope="col">Descrizione</th>
-                <th scope="col">Linguaggi</th>
-                <th scope="col">Frameworks</th>
-                <th scope="col">Tipologia</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Slug</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($projects as $project)
+            @foreach ($types as $type)
                 <tr>
-                    <td>{{ $project->title }}</td>
-                    <td>{{ $project->description }}</td>
-                    <td>{{ $project->languages }}</td>
-                    <td>{{ $project->frameworks }}</td>
-                    <td>{{ $project->type?->name }}</td>
-                    <td><a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary btn-sm">modifica</a>
+                    <td>{{ $type->name }}</td>
+                    <td class="col-8">{{ $type->slug }}</td>
+                    <td><a href="{{ route('admin.types.edit', $type) }}" class="btn btn-primary btn-sm">modifica</a>
                     </td>
-                    <td><a href="{{ route('admin.projects.show', $project) }}" class="btn btn-secondary btn-sm">mostra</a>
+                    <td><a href="{{ route('admin.types.show', $type) }}" class="btn btn-secondary btn-sm">mostra</a>
                     </td>
                     <td>
-                        <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+                        <form action="{{ route('admin.types.destroy', $type) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input type="button" value="cancella" class="btn btn-danger btn-sm" data-bs-toggle="modal"
@@ -59,7 +54,7 @@
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="modalLabel{{ $loop->iteration }}">Sei sicuro
                                                 di voler cancellare
-                                                il progetto '{{ $project->title }}'?</h1>
+                                                il tipo '{{ $type->name }}'?</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -77,5 +72,5 @@
             @endforeach
         </tbody>
     </table>
-    {{-- /table to show projects --}}
+    {{-- /table to show types --}}
 @endsection
