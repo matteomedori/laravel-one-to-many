@@ -72,7 +72,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-info' : '' }}"
                                     href="{{ route('admin.types.index') }}">
-                                    <i class="fa-solid fa-briefcase fa-lg fa-fw"></i> Types
+                                    <i class="fa-solid fa-screwdriver-wrench fa-lg fa-fw"></i> Types
                                 </a>
                             </li>
                         </ul>
