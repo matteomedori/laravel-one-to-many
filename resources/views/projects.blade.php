@@ -24,7 +24,7 @@
                             <td>{{ $project->description }}</td>
                             <td>{{ $project->languages }}</td>
                             <td>{{ $project->frameworks }}</td>
-                            <td>{{ $project->type->name }}</td>
+                            <td>{{ $project->type?->name }}</td>
                         </tr>
                     @endforeach
                 </tbody>
